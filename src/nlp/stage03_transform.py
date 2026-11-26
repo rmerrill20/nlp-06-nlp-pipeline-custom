@@ -1,6 +1,7 @@
 """stage03_transform.py.
 
-(EDIT YOUR VERSION OF THIS FILE)
+## Ronni Merrill
+## 2026-11-25
 
 Source: validated BeautifulSoup object
 Sink:   analysis-ready Pandas DataFrame

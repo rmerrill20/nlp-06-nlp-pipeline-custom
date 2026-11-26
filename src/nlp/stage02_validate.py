@@ -1,5 +1,8 @@
 """src/nlp/stage02_validate.py - Validate Stage.
 
+## Ronni Merrill
+## 2026-11-25
+
 (EDIT YOUR VERSION OF THIS FILE)
 
 Source: Raw HTML string
