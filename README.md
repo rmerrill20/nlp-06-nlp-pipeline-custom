@@ -1,4 +1,4 @@
-# nlp-06-nlp-pipeline
+# nlp-06-nlp-pipeline-custom
 
 [![Python 3.14](https://img.shields.io/badge/python-3.14%2B-blue?logo=python)](pyproject.toml)
 [![CI](https://github.com/denisecase/nlp-06-nlp-pipeline/actions/workflows/ci-python-zensical.yml/badge.svg)](https://github.com/denisecase/nlp-06-nlp-pipeline/actions/workflows/ci-python-zensical.yml)
@@ -13,9 +13,9 @@
 
 ## Project Overview
 
-Author: Denise Case
+Author: Ronni Merrill
 
-Date: 2026 October
+Date: 2026 November
 
 Sixth project in the Web Mining and Applied NLP course.
 
@@ -48,17 +48,14 @@ The project is configured in
 
 ## Data
 
-The example retrieves an academic paper's abstract page
-from [arXiv](https://arxiv.org/abs/2602.20021).
+The project retrieves an academic paper's abstract page
+from [HIPAA Journal](https://www.hipaajournal.com/healthcare-data-breach-statistics/).
 
 The source document contains:
 
-- Paper title.
-- Authors.
+- Article title.
 - Abstract text.
 - Subject categories.
-- Submission information.
-- arXiv identifier.
 
 The pipeline preserves the original HTML,
 extracts document metadata,
@@ -195,7 +192,7 @@ uv run python -m pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://denisecase.github.io/nlp-06-nlp-pipeline/)
+The [hosted documentation site](https://rmerrill20.github.io/nlp-06-nlp-pipeline-custom/)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
@@ -299,7 +296,7 @@ testing, documentation, and code quality.
 
 ## Links
 
-- [Hosted Documentation](https://denisecase.github.io/nlp-06-nlp-pipeline/)
+- [Hosted Documentation](https://rmerrill20.github.io/nlp-06-nlp-pipeline-custom/)
 - [Professional Python Workflow Guide](https://denisecase.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
