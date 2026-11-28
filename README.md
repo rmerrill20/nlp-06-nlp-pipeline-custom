@@ -19,6 +19,12 @@ Date: 2026 November
 
 Sixth project in the Web Mining and Applied NLP course.
 
+The selected article, Protecting Patient Privacy in
+Clinical Foundation Models: Technical and Legal
+Perspectives, explores privacy concerns associated
+with clinical foundation models and the use of patient
+data.
+
 This project introduces a complete natural language
 processing pipeline for working with web documents.
 
@@ -46,10 +52,21 @@ Extract, Validate, Transform, Analyze, Load (EVTAL).
 The project is configured in
 [pyproject.toml](pyproject.toml).
 
+## Project Modifications
+
+Two modifications were made to the original project:
+
+-New Data Source: Replaced the original webpage with
+an arXiv research article focused on patient privacy
+in clinical foundation models.
+-Token Analysis: Modified the token-frequency analysis
+to display the top 15 most frequently occurring tokens
+instead of the original top 20.
+
 ## Data
 
 The project retrieves an academic paper's abstract page
-from [HIPAA Journal](https://www.hipaajournal.com/healthcare-data-breach-statistics/).
+from [Arxiv](https://arxiv.org/abs/2608.07705/).
 
 The source document contains:
 

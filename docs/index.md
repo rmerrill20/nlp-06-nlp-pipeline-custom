@@ -1,12 +1,20 @@
 # Web Mining and Applied NLP Project Report
 
-Web Mining and Applied NLP | Project 06 | Example Report
+Web Mining and Applied NLP | Project 06
+
+Author: Ronni Merrill
+
+Date: 2026 November
 
 ## Overview
 
 This project introduces a complete
 natural language processing pipeline
-for analyzing text extracted from web documents.
+for analyzing text extracted a healthcare-
+realted research article titled
+Protecting Patient Privacy in Clinical
+Foundation Models: Technical and Legal
+Perspectives.
 
 The objective is to acquire HTML,
 validate document structure,
@@ -20,6 +28,19 @@ by introducing an explicit Analyze stage.
 
 The resulting architecture is
 Extract, Validate, Transform, Analyze, Load (EVTAL).
+
+The purpose of this analysis is to process the
+article's text and identify frequently occurring
+words that help describe its content.
+
+As a technical modification, the original data source
+was replaced with the selected arXiv research article:
+
+https://arxiv.org/abs/2608.07705
+
+This change adapts the existing NLP pipeline to a
+healthcare topic involving a patient privacy and
+clinical artificial intelligence.
 
 ## Tools and Methods
 
@@ -38,8 +59,8 @@ The project uses:
 - Ruff, ty, and pytest for code verification.
 - Zensical and GitHub Pages for published documentation.
 
-The example retrieves an academic paper's
-abstract page from arXiv.
+This customized project uses an arXiv article that is different
+from the example project.
 
 The pipeline implements five stages:
 
@@ -58,6 +79,15 @@ and other derived text features.
 
 The Analyze stage produces a token frequency chart
 and a word cloud.
+
+Technical Modification: 15 tokens
+
+This project modifies the token-frequency analysis
+to display the top 15 most common tokens.
+
+This adjustment provides a more concise view of the
+most frequently occurring vocabulary while preserving
+the existing text-processing and analysis workflow.
 
 ## Verification
 
@@ -92,6 +122,13 @@ that support meaningful analysis.
 Token frequencies describe recurring vocabulary,
 while unique token counts and type-token ratios
 provide measures of vocabulary diversity.
+
+The top 15 token analysis provides a focused
+view of the most frequently occurring words in
+the selected research article. These terms can
+help identify recurring concepts related to
+patient privacy, clinical artificial
+intelligence, and data protection.
 
 Visualizations help reveal dominant terms
 and suggest questions for further investigation.
