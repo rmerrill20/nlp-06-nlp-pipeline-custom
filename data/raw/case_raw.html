@@ -11,13 +11,11 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" type="text/css" media="screen" href="/static/browse/0.3.4/css/arXiv.css?v=20260318" />
-  <link rel="stylesheet" type="text/css" media="print" href="/static/browse/0.3.4/css/arXiv-print.css?v=20200611" />
+  <link rel="stylesheet" type="text/css" media="print" href="/static/browse/0.3.4/css/arXiv-print.css?v=20260924" />
   <link rel="stylesheet" type="text/css" media="screen" href="/static/browse/0.3.4/css/browse_search.css" />
-  <link rel="stylesheet" type="text/css" media="screen" href="/static/base/1.0.1/css/arxiv-header-footer.css?v=20260626" />
-  <script language="javascript" src="/static/browse/0.3.4/js/accordion.js" ></script>
-  <script language="javascript" src="/static/browse/0.3.4/js/optin-modal.js?v=20250819"></script>
-
-  <link rel="canonical" href="https://arxiv.org/abs/2602.20021"/>
+<link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/design-system-components.css">
+<link rel="stylesheet" href="https://static.arxiv.org/static/design-system/latest/fonts.css">  <script language="javascript" src="/static/browse/0.3.4/js/accordion.js" ></script>
+  <script language="javascript" src="/static/browse/0.3.4/js/optin-modal.js?v=20250819"></script><link rel="canonical" href="https://arxiv.org/abs/2602.20021"/>
   <meta name="description" content="Abstract page for arXiv paper 2602.20021: Agents of Chaos"><meta property="og:type" content="website" />
 <meta property="og:site_name" content="arXiv.org" />
 <meta property="og:title" content="Agents of Chaos" />
@@ -43,54 +41,48 @@
 
 <body ><div class="flex-wrap-footer">
     <a href="#content" class="ds-skip-link">Skip to main content</a>
-
-
-
-<header class="ds-site-header">
+<div id="ds-announcement"></div>
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/banner.js" defer></script>
+<script src="https://static.arxiv.org/static/design-system/latest/chrome/header.js" defer></script>
+<header class="ds-site-header ">
   <a aria-hidden="true" tabindex="-1" href="https://arxiv.org/IgnoreMe" class="is-sr-only"></a>
-
   <a href="https://arxiv.org/" class="ds-site-header-logo" aria-label="archive home">
-    <img src="/static/base/1.0.1/images/arxiv-logo-primary-light.svg" alt="archive">
+    <img src="https://static.arxiv.org/static/design-system/latest/logos/arxiv-logo.svg" alt="archive">
   </a>
-
+  <a id="ds-search-toggle" class="ds-site-header-search-link" href="https://arxiv.org/search" aria-controls="ds-search-overlay" aria-expanded="false">
+    <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span>Search</span>
+  </a>
   <button type="button" id="ds-nav-toggle" class="ds-site-header-nav-toggle"
     aria-label="Open menu" aria-controls="ds-site-header-nav" aria-expanded="false">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
     </svg>
   </button>
-
-  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation"><a id="arxiv-search-toggle" href="https://arxiv.org/search"
-      aria-controls="arxiv-search-overlay" aria-expanded="false">
-      <svg class="ds-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <circle cx="11" cy="11" r="8"/>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      Search
-    </a>
-    <a href="https://arxiv.org/user/create">Submit</a>
+  <nav class="ds-site-header-nav" id="ds-site-header-nav" aria-label="Main navigation">
+    <a href="https://arxiv.org/submit">Submit</a>
     <a href="https://info.arxiv.org/about/donate.html">Donate</a>
     <span class="ds-site-header-divider" aria-hidden="true"></span>
-      <a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>
-  </nav>
+<a href="https://arxiv.org/login" class="ds-site-header-login">Log in</a>  </nav>
 </header>
-
-<div class="arxiv-search-overlay" id="arxiv-search-overlay" hidden>
-  <div class="arxiv-search-panel" role="search">
+<div class="ds-search-overlay" id="ds-search-overlay" hidden>
+  <div class="ds-search-overlay-panel" role="search">
     <form method="GET" action="https://arxiv.org/search">
-      <label for="arxiv-search-input" class="is-sr-only">Search arXiv</label>
-      <input type="text" name="query" id="arxiv-search-input" autocomplete="off"
+      <label for="ds-search-input" class="is-sr-only">Search arXiv</label>
+      <input type="text" name="query" id="ds-search-input" class="ds-input" autocomplete="off"
         placeholder="Search papers by title, author, abstract, or ID...">
       <input type="hidden" name="searchtype" value="all">
       <input type="hidden" name="source" value="header">
     </form>
-    <div class="arxiv-search-hint">
+    <p class="ds-hint">
       Press Enter to search &middot; <a href="https://arxiv.org/search/advanced">Advanced search</a>
-    </div>
+    </p>
   </div>
 </div>
+
     <main>
       <div id="content">
 <!--
@@ -177,7 +169,13 @@ View a PDF of the paper titled Agents of Chaos, by Natalie Shapira and 37 other 
  </a></li></ul>
       <div class="abs-license"><a href="http://arxiv.org/licenses/nonexclusive-distrib/1.0/" title="Rights to this article">view license</a></div>
     </div>
-    <!--end full-text-->    <div class="browse">
+    <!--end full-text-->    <div class="extra-third-party">
+      <h3>Additional Features</h3>
+      <ul>
+        <li><a href="/audio/2602.20021" class="abs-button download-audio">Audio Summary</a></li>
+      </ul>
+    </div>
+    <div class="browse">
     <h3 class="browse-context-heading">Current browse context:</h3>
   <div class="current">cs.AI</div>
 
@@ -207,7 +205,7 @@ View a PDF of the paper titled Agents of Chaos, by Natalie Shapira and 37 other 
       <div class="extra-ref-cite">
         <h3>References &amp; Citations</h3>
         <ul>
-          <li><a  class="abs-button abs-button-small cite-ads" href="https://ui.adsabs.harvard.edu/abs/arXiv:2602.20021">NASA ADS</a></li><li><a  class="abs-button abs-button-small cite-google-scholar" href="https://scholar.google.com/scholar_lookup?arxiv_id=2602.20021" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a  class="abs-button abs-button-small cite-ads" href="https://scixplorer.org/abs/arXiv:2602.20021">SciX</a></li><li><a  class="abs-button abs-button-small cite-google-scholar" href="https://scholar.google.com/scholar_lookup?arxiv_id=2602.20021" target="_blank" rel="noopener">Google Scholar</a></li>
           <li><a  class="abs-button abs-button-small cite-semantic-scholar" href="https://api.semanticscholar.org/arXiv:2602.20021" target="_blank" rel="noopener">Semantic Scholar</a></li>
         </ul>
         <div style="clear:both;"></div>
@@ -256,7 +254,7 @@ View a PDF of the paper titled Agents of Chaos, by Natalie Shapira and 37 other 
           <div class="column lab-switch">
             <label class="switch">
               <input id="bibex-toggle" type="checkbox" class="lab-toggle"
-                     data-script-url="/static/browse/0.3.4/bibex/bibex.js?20241202">
+                     data-script-url="/static/browse/0.3.4/bibex/bibex.js?20261013">
               <span class="slider"></span>
               <span class="is-sr-only">Bibliographic Explorer Toggle</span>
             </label>
@@ -574,48 +572,23 @@ View a PDF of the paper titled Agents of Chaos, by Natalie Shapira and 37 other 
   <div class="ds-site-footer-grid">
     <div class="ds-site-footer-main">
       <div class="ds-site-footer-ack">
-        We gratefully acknowledge support from
-        our <strong>major funders</strong>,
+        We gratefully acknowledge support from our <a href="https://info.arxiv.org/about/major_funders.html"><strong>major funders</strong></a>,
         <a href="https://info.arxiv.org/about/ourmembers.html"><strong>member institutions</strong></a><span class="ack-member-inline" hidden>, <strong></strong></span>,
         and all contributors.
       </div>
       <nav class="ds-site-footer-links" aria-label="Site navigation">
-        <a href="https://info.arxiv.org/about">About</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help">Help</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help/contact.html">Contact</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help/subscribe">Subscribe</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a>
-        <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
-        <a href="https://status.arxiv.org" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
+        <a href="https://info.arxiv.org/about">About</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help">Help</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/contact.html">Contact</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/subscribe.html">Subscribe</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/license/index.html">Copyright</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/policies/privacy_policy.html">Privacy</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://info.arxiv.org/help/web_accessibility.html">Accessibility</a> <span class="ds-site-footer-sep" aria-hidden="true">&middot;</span>
+        <a href="https://status.arxiv.org/" target="_blank" rel="noopener noreferrer">Operational Status<span class="is-sr-only"> (opens in new tab)</span></a>
       </nav>
-    </div>
-
-    <div class="ds-site-footer-funders" aria-label="Major funders">
-      <div class="ds-site-footer-funders-label">Major funding support from</div>
-      <div class="ds-site-footer-funders-logos">
-        <a class="ds-funder-link" href="https://www.simonsfoundation.org/" target="_blank" rel="noopener noreferrer">
-          <img class="ds-funder-logo" src="/static/base/1.0.1/images/funders/simons-foundation.png" alt="Simons Foundation">
-        </a>
-        <a class="ds-funder-link" href="https://www.sfi.org.bm/" target="_blank" rel="noopener noreferrer">
-          <img class="ds-funder-logo" src="/static/base/1.0.1/images/funders/simons-foundation-international.png" alt="Simons Foundation International">
-        </a>
-        <a class="ds-funder-link" href="https://www.schmidtsciences.org/" target="_blank" rel="noopener noreferrer">
-          <img class="ds-funder-logo" src="/static/base/1.0.1/images/funders/schmidt-sciences.png" alt="Schmidt Sciences">
-        </a>
-      </div>
     </div>
   </div>
 </footer>  </div>
-
-  <script src="/static/base/1.0.1/js/arxiv-header.js?v=20260626"></script>
 
 </body>
 

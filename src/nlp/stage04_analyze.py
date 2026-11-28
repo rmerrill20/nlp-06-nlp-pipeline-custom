@@ -194,7 +194,7 @@ def run_analyze(
     df: pd.DataFrame,
     LOG: logging.Logger,
     output_dir: Path = Path("data/processed"),
-    top_n: int = 20,
+    top_n: int = 10,
 ) -> None:
     """Analyze the transformed DataFrame and produce visualizations.
 
