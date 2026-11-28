@@ -60,43 +60,42 @@ env:
   PYTHONIOENCODING: "utf-8" # WHY: Consistent encoding across platforms.
   UV_FROZEN: "1" # WHY: Deployment MUST use uv.lock without updating it.
 
+
 jobs:
-  docs:
-    name: Deploy Documentation site
+  # ============================================================
+  # JOB 1: BUILD AND UPLOAD DOCUMENTATION
+  # ============================================================
+  build:
+    name: Build Documentation site
     runs-on: ubuntu-latest
-    timeout-minutes: 30 # WHY: Fail fast if a step hangs unexpectedly.
+    timeout-minutes: 30
+
+    permissions:
+      contents: read
+      pages: read
 
     steps:
-      # ============================================================
       # A) ASSEMBLE: Checkout code and set up environment
-      # ============================================================
 
       - name: A1) Checkout repository code
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-          # WHY: Required so all subsequent steps can access repo files.
 
       - name: A2) Configure GitHub Pages
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
-        # WHY: Sets Pages metadata used by upload-pages-artifact and deploy-pages.
-        # OBS: Must run before the build step so base URL is available if needed.
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
 
       - name: A3) Install uv (with caching and uv.lock awareness)
-        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
+        uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
-          # WHY: Invalidate dependency cache when the committed lockfile changes.
 
       - name: A4) Install project Python
         run: uv python install
-        # WHY: Ensures the Python version declared in .python-version is available.
-        # OBS: uv manages the interpreter locally in the CI environment.
 
       - name: A5) Install dependencies from committed lockfile
         run: uv sync --frozen
-        # WHY: Install dependencies from the committed uv.lock without updating it.
 
       - name: A6) Show tool versions
         run: |
@@ -105,11 +104,9 @@ jobs:
           if [ -f "zensical.toml" ]; then
             uv run python -m zensical --version
           fi
-        # WHY: Version output makes deployment logs easier to debug when tools change.
 
-      # ============================================================
-      # D) DEPLOY: Build and publish docs
-      # ============================================================
+      # D) BUILD AND UPLOAD
+
       - name: D1) Build docs with Zensical
         run: |
           if [ ! -f "zensical.toml" ]; then
@@ -117,9 +114,6 @@ jobs:
             exit 1
           fi
           uv run python -m zensical build
-        # WHY: Hard-fail if zensical.toml is missing rather than deploying nothing.
-        # OBS: In CI (ci-python-zensical.yml) the missing config is a soft skip.
-        #      Here it is a hard failure because a deploy without docs is wrong.
 
       - name: D2) Verify site output exists
         run: |
@@ -129,19 +123,29 @@ jobs:
             echo "Check the Zensical build step and zensical.toml configuration." >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
-        # WHY: Catch a silent build failure before attempting to upload an empty artifact.
-        # OBS: Zensical outputs to site/ by default; update this path if zensical.toml
-        #      configures a different output directory.
 
       - name: D3) Upload Pages artifact
-        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
         with:
           path: site
-        # WHY: Packages the built static site for the deploy-pages action.
-        # OBS: path must match the output directory verified in D2.
 
+  # ============================================================
+  # JOB 2: DEPLOY DOCUMENTATION
+  # ============================================================
+  deploy:
+    name: Deploy Documentation site
+    runs-on: ubuntu-latest
+    needs: build
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
       - name: D4) Deploy to GitHub Pages
-        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
-        # WHY: Publishes the uploaded artifact to GitHub Pages.
-        # OBS: Requires pages: write and id-token: write permissions (set above).
-        # OBS: The deployed URL is shown in the Actions log after this step completes.
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346
