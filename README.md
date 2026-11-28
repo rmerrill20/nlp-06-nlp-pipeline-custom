@@ -176,6 +176,10 @@ These artifacts provide evidence of successful
 data acquisition, validation, transformation,
 analysis, and persistence.
 
+## Technical Modification
+
+Technical Modification: The NLP pipeline was modified to display the top 10 most frequently occurring tokens instead of the top 20. This change provides a more concise summary of the text analysis results while maintaining the existing processing workflow.
+
 ### Example Visualizations
 
 ![Top Tokens](docs/images/case_top_tokens.png)
